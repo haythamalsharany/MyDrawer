@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/ic_home"></item>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/food"
+            android:title="Food"
+
+            android:icon="@drawable/ic_food"></item>
+        <item
+            android:id="@+id/drink"
+            android:title="Drink"
+            android:icon="@drawable/ic_drink"></item>
+        <item
+            android:id="@+id/dessert"
+            android:title="Dessert"
+            android:icon="@drawable/ic_dessert"></item>
+
+
+    </group>
+
+    <group android:checkableBehavior="single"
+        android:visible="false"
+        android:enabled="true"
+        >
+        <item
+            android:id="@+id/fast_food"
+            android:title="Fast Food"
+            android:icon="@drawable/ic_baseline_fastfood"></item>
+        <item
+            android:id="@+id/local_drink"
+            android:title="Local Drink"
+            android:icon="@drawable/ic_local_drink_"></item>
+        <item
+            android:id="@+id/free_breakfast"
+            android:title="Free Freakfast"
+            android:icon="@drawable/ic_free_breakfast"></item>
+    </group>
+    <item
+        android:id="@+id/about_me"
+        android:title="About Me"
+        android:icon="@android:drawable/ic_menu_info_details"
+        ></item>
+    <item
+        android:id="@+id/contact_me"
+        android:title="Contact Me"
+        android:icon="@android:drawable/stat_sys_vp_phone_call_on_hold"
+        ></item>
+
+
+</menu>

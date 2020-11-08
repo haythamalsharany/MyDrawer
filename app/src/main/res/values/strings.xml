@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MyDrawer</string>
+    <string name="open_drawer_content_des">open navigation drawer</string>
+    <string name="close_drawer_content_des">close navigation drawer </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
