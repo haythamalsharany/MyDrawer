@@ -8,6 +8,7 @@
     tools:context=".AboutMeFrament">
 
     <ImageView
+
         android:id="@+id/pack_image"
         android:layout_width="match_parent"
         android:layout_height="150dp"
@@ -20,24 +21,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></ImageView>
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
 
-        android:id="@+id/imageButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:id="@+id/profilPhoto"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="144dp"
-        android:layout_marginEnd="150dp"
-        android:background="@drawable/my_photo"
-        android:scaleType="centerCrop"
+        android:layout_marginEnd="120dp"
 
-        android:src="@drawable/image_shape"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ali_connors"
+        app:civ_border_color="#FF0000"
+
+
+        app:civ_border_width="2dp"
         app:layout_constraintBottom_toBottomOf="@+id/pack_image"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.768"
+        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.071"></ImageView>
+        app:layout_constraintVertical_bias="0.017"></de.hdodenhof.circleimageview.CircleImageView>
 
     <TextView
         android:id="@+id/name_tv"
@@ -50,71 +54,78 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+        app:layout_constraintTop_toBottomOf="@+id/profilPhoto" />
 
-    <Button
+    <ImageButton
         android:id="@+id/add_contact_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="48dp"
-        android:text="add_contact"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_tv" />
-
-    <Button
-        android:id="@+id/location_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="48dp"
-        android:text="location"
+        android:background="@drawable/image_shape"
+        android:src="@drawable/ic_addcontact"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_tv" />
+
+    <ImageButton
+        android:id="@+id/location_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/image_shape"
+        android:src="@drawable/ic_loacation"
         app:layout_constraintStart_toEndOf="@+id/add_contact_btn"
         app:layout_constraintTop_toBottomOf="@+id/name_tv" />
 
-    <Button
+    <ImageButton
         android:id="@+id/email_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="48dp"
-        android:text="E-mail"
+        android:background="@drawable/image_shape"
+        android:src="@drawable/ic_send_email"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.351"
         app:layout_constraintStart_toEndOf="@+id/location_btn"
         app:layout_constraintTop_toBottomOf="@+id/name_tv" />
 
-    <Button
+    <ImageButton
         android:id="@+id/facebook_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
-        android:text="facebook"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_contact_btn" />
+        android:background="@drawable/image_shape"
+        android:src="@drawable/facebook64"
+        app:layout_constraintStart_toStartOf="@+id/add_contact_btn"
+        app:layout_constraintTop_toBottomOf="@+id/add_contact_btn"
+        tools:layout_editor_absoluteX="16dp" />
 
-    <Button
+    <ImageButton
         android:id="@+id/github_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
-        android:text="github"
-        app:layout_constraintEnd_toStartOf="@+id/linkedin_btn"
+        android:background="@drawable/image_shape"
+        android:src="@drawable/github64"
+        app:layout_constraintEnd_toEndOf="@+id/location_btn"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/facebook_btn"
         app:layout_constraintTop_toBottomOf="@+id/location_btn" />
 
-    <Button
+    <ImageButton
         android:id="@+id/linkedin_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="196dp"
         android:layout_marginTop="20dp"
-        android:text="linkedin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/facebook_btn"
+        android:background="@drawable/image_shape"
+        android:src="@drawable/linkedin64"
+        app:layout_constraintEnd_toEndOf="@+id/email_btn"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/github_btn"
         app:layout_constraintTop_toBottomOf="@+id/email_btn" />
 
 

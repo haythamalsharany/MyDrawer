@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="ring"
+    android:innerRadius="0dp"
+    android:thicknessRatio="2.0"
+    android:useLevel="false"
 
-        <stroke android:color="@color/colorPrimaryDark"
-            android:width="5dp"
-            ></stroke>
-        <corners android:radius="50dp"
-            ></corners>
+    >
 
-        <size android:width="50dp"
-            android:height="50dp"
-            ></size>
+   <solid android:color="@android:color/darker_gray"
+       ></solid>
+   <size
+       android:height="64dp"
+       android:width="64dp"
+
+      ></size>
+
+
 
 
 </shape>

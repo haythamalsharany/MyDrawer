@@ -12,9 +12,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import kotlinx.android.synthetic.main.fragment_about_me_frament.*
@@ -23,13 +21,14 @@ import java.security.Permissions
 
 class AboutMeFrament : Fragment() {
 
-     lateinit var contactButton: Button
-     lateinit var locationButton: Button
-     lateinit var emailButton: Button
-     lateinit var facebooktButton: Button
-     lateinit var gitHubtButton: Button
-     lateinit var linkedIntButton: Button
+     lateinit var contactButton: ImageButton
+     lateinit var locationButton: ImageButton
+     lateinit var emailButton: ImageButton
+     lateinit var facebooktButton: ImageButton
+     lateinit var gitHubtButton: ImageButton
+     lateinit var linkedIntButton: ImageButton
     lateinit var nameTextView: TextView
+    lateinit var profilPhoto:ImageView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,6 +41,9 @@ class AboutMeFrament : Fragment() {
         gitHubtButton=view.findViewById(R.id.github_btn)
         linkedIntButton=view.findViewById(R.id.linkedin_btn)
         nameTextView=view.findViewById(R.id.name_tv)
+        profilPhoto=view.findViewById(R.id.profilPhoto)
+       // profilPhoto.clipToOutline=true
+
         // Inflate the layout for this fragment
         return view
     }
@@ -60,13 +62,13 @@ class AboutMeFrament : Fragment() {
         super.onStart()
         contactButton.setOnClickListener{
             val int=getIntent(R.id.add_contact_btn)
-
+/*
            if(checkContactExist(requireActivity(),int.getStringExtra(ContactsContract.Intents.Insert.PHONE))) {
                val intent=Intent(Intent.ACTION_DIAL).apply {
                    data=Uri.parse("tel:int.getStringExtra(ContactsContract.Intents.Insert.PHONE")
                }
            }
-            else {
+            else {*/
 
                if (ActivityCompat.checkSelfPermission(
                        requireActivity(),
@@ -80,7 +82,7 @@ class AboutMeFrament : Fragment() {
                    addContact()
 
                }
-           }
+          // }
 
 
         }
@@ -207,6 +209,7 @@ class AboutMeFrament : Fragment() {
                 }
             }
             R.id.linkedin_btn -> {
+
                 intent.apply {
 
                     action = Intent.ACTION_VIEW
@@ -215,15 +218,26 @@ class AboutMeFrament : Fragment() {
 
             }
             R.id.add_contact_btn->{
-                intent.apply {
-                    action=ContactsContract.Intents.Insert.ACTION
-                    type=ContactsContract.RawContacts.CONTENT_TYPE
-                    putExtra(ContactsContract.Intents.Insert.NAME,"haytham alsharany")
-                    putExtra(ContactsContract.Intents.Insert.PHONE,"772967092")
-                    putExtra(ContactsContract.Intents.Insert.PHONE_TYPE,ContactsContract.CommonDataKinds.Phone.TYPE_HOME)
 
-                }
-            }
+                   if( checkContactExist(requireActivity(),"7777777"))
+                       intent.apply {
+                           action=Intent.ACTION_DIAL
+                               data=Uri.parse("tel:7777777")
+                       }
+                    else
+                       intent.apply {
+                           action=ContactsContract.Intents.Insert.ACTION
+                           type=ContactsContract.RawContacts.CONTENT_TYPE
+                           putExtra(ContactsContract.Intents.Insert.NAME,"haytham alsharany")
+                           putExtra(ContactsContract.Intents.Insert.PHONE,"7777777")
+                           putExtra(ContactsContract.Intents.Insert.PHONE_TYPE,ContactsContract.CommonDataKinds.Phone.TYPE_HOME)
+
+                       }
+
+                   }
+              //  }
+
+           // }
         }
       return intent
     }
@@ -237,7 +251,7 @@ class AboutMeFrament : Fragment() {
             startActivity( intent)
 
     }
-    @RequiresApi(Build.VERSION_CODES.O)
+ //   @RequiresApi(Build.VERSION_CODES.O)
     fun checkContactExist(activity:Activity, number : String):Boolean {
         val lookUpUri = Uri.withAppendedPath(
             ContactsContract.PhoneLookup.CONTENT_FILTER_URI,
@@ -249,8 +263,15 @@ class AboutMeFrament : Fragment() {
             ContactsContract.PhoneLookup.DISPLAY_NAME
         )
 
-        val cursor =
-            activity.contentResolver.query(lookUpUri, myPhoneNumberProjection, null, null)
+        val cursor =lookUpUri.let {
+           // requireActivity().contentResolver.query(lookUpUri, myPhoneNumberProjection, null, null)
+            activity.contentResolver.query(
+                it , myPhoneNumberProjection ,
+                null , null , null
+            )
+        }
+            //requireActivity().contentResolver.query(lookUpUri, myPhoneNumberProjection, null, null)
+              //  .query(lookUpUri, myPhoneNumberProjection, null, null)
 
 
 
